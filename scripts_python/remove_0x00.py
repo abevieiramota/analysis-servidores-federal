@@ -1,0 +1,1 @@
+import codecsimport sysfilename = sys.argv[1]out_filename = sys.argv[2]f_in = codecs.open(filename, encoding='iso-8859-1')f_out = codecs.open(out_filename, encoding='iso-8859-1', mode='w')for line in f_in.readlines():    line_w_null = line.replace(u'\x00', '')    f_out.write(line_w_null)    f_in.close()f_out.close()

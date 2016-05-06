@@ -1,0 +1,20 @@
+<Schema name="New Schema1">
+  <Cube name="Servidores" visible="true" cache="true" enabled="true">
+    <Table name="fato_servidores_ufc" schema="public" alias="">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" name="dim_jornada_de_trabalho">
+      <Hierarchy visible="true" hasAll="true">
+        <Level name="Jornada de trabalho" visible="true" column="jornada_de_trabalho" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" name="dim_cargo">
+      <Hierarchy visible="true" hasAll="true">
+        <Level name="Cargo" visible="true" column="descricao_cargo" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Count" column="id_servidor_portal" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
