@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>carga_servidores_cadastro</name>
+    <name>Carga Remunera&#xe7;&#xe3;o</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
-        <parameter>
-            <name>servidores_cadastro_filename</name>
-            <default_value>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x5c;..&#x5c;..&#x5c;dados-servidores-federal&#x5c;201603_Servidores&#x5c;out_20160331_Cadastro.csv</default_value>
-            <description/>
-        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>
@@ -72,16 +66,16 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;05&#x2f;05 18&#x3a;22&#x3a;10.010</created_date>
+  <created_date>2016&#x2f;05&#x2f;07 18&#x3a;01&#x3a;47.335</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;05&#x2f;05 18&#x3a;22&#x3a;10.010</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+  <modified_date>2016&#x2f;05&#x2f;07 18&#x3a;01&#x3a;47.335</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>executivo_federal</name>
+    <name>dados_executivo_federal</name>
     <server/>
     <type>POSTGRESQL</type>
     <access>JNDI</access>
@@ -105,11 +99,10 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>CSV Input - 20160331_Cadastro.csv</from><to>Select values - apenas colunas interessantes</to><enabled>Y</enabled> </hop>
-  <hop> <from>Select values - apenas colunas interessantes</from><to>Table output - fato_servidores_ufc</to><enabled>Y</enabled> </hop>
+  <hop> <from>CSV file input</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>CSV Input - 20160331_Cadastro.csv</name>
+    <name>CSV file input</name>
     <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -119,7 +112,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;servidores_cadastro_filename&#x7d;</filename>
+    <filename>C&#x3a;&#x5c;Users&#x5c;abevieira&#x5c;Documents&#x5c;GitHub&#x5c;dados-servidores-federal&#x5c;201603_Servidores&#x5c;out_20160331_Remuneracao.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -131,10 +124,10 @@
     <add_filename_result>N</add_filename_result>
     <parallel>N</parallel>
     <newline_possible>N</newline_possible>
-    <encoding>ISO-8859-1</encoding>
+    <encoding/>
     <fields>
       <field>
-        <name>Id_SERVIDOR_PORTAL</name>
+        <name>ANO</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>R&#x24;</currency>
@@ -145,14 +138,25 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>NOME</name>
-        <type>String</type>
-        <format/>
+        <name>MES</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>60</length>
-        <precision>-1</precision>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ID_SERVIDOR_PORTAL</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
@@ -167,501 +171,368 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>MATRICULA</name>
+        <name>NOME</name>
         <type>String</type>
         <format/>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>7</length>
+        <length>60</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>DESCRICAO_CARGO</name>
-        <type>String</type>
-        <format/>
+        <name>REMUNERA&#xc7;&#xc3;O B&#xc1;SICA BRUTA &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>40</length>
-        <precision>-1</precision>
+        <length>8</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>CLASSE_CARGO</name>
-        <type>String</type>
-        <format/>
+        <name>REMUNERA&#xc7;&#xc3;O B&#xc1;SICA BRUTA &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>1</length>
-        <precision>-1</precision>
+        <length>8</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>REFERENCIA_CARGO</name>
-        <type>Boolean</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>PADRAO_CARGO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>NIVEL_CARGO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>SIGLA_FUNCAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>NIVEL_FUNCAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>FUNCAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>39</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>CODIGO_ATIVIDADE</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ATIVIDADE</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>30</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>OPCAO_PARCIAL</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>14</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>COD_UORG_LOTACAO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>UORG_LOTACAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>40</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>COD_ORG_LOTACAO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ORG_LOTACAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>40</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>COD_ORGSUP_LOTACAO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ORGSUP_LOTACAO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>40</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>COD_UORG_EXERCICIO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>UORG_EXERCICIO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>41</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>COD_ORG_EXERCICIO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>5</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ORG_EXERCICIO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>40</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>COD_ORGSUP_EXERCICIO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>5</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ORGSUP_EXERCICIO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>40</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>TIPO_VINCULO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>SITUACAO_VINCULO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>20</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DATA_INICIO_AFASTAMENTO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DATA_TERMINO_AFASTAMENTO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>REGIME_JURIDICO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>33</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>JORNADA_DE_TRABALHO</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>19</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DATA_INGRESSO_CARGOFUNCAO</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DATA_NOMEACAO_CARGOFUNCAO</name>
-        <type>Boolean</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DATA_INGRESSO_ORGAO</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DOCUMENTO_INGRESSO_SERVICOPUBLICO</name>
-        <type>String</type>
-        <format/>
+        <name>ABATE-TETO &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
         <length>9</length>
-        <precision>-1</precision>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>DATA_DIPLOMA_INGRESSO_SERVICOPUBLICO</name>
-        <type>String</type>
-        <format/>
+        <name>ABATE-TETO &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>13</length>
-        <precision>-1</precision>
+        <length>8</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>DIPLOMA_INGRESSO_CARGOFUNCAO</name>
-        <type>Boolean</type>
-        <format/>
+        <name>GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>-1</length>
-        <precision>-1</precision>
+        <length>9</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>DIPLOMA_INGRESSO_ORGAO</name>
-        <type>String</type>
-        <format/>
+        <name>GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>20</length>
-        <precision>-1</precision>
+        <length>7</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>DIPLOMA_INGRESSO_SERVICOPUBLICO</name>
-        <type>String</type>
-        <format/>
+        <name>ABATE-TETO DA GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>20</length>
-        <precision>-1</precision>
+        <length>8</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>UF_EXERCICIO</name>
-        <type>String</type>
-        <format/>
+        <name>ABATE-TETO DA GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>2</length>
-        <precision>-1</precision>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>F&#xc9;RIAS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>F&#xc9;RIAS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>7</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OUTRAS REMUNERA&#xc7;&#xd5;ES EVENTUAIS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OUTRAS REMUNERA&#xc7;&#xd5;ES EVENTUAIS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IRRF &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>9</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IRRF &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PSS&#x2f;RPGS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PSS&#x2f;RPGS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PENS&#xc3;O MILITAR &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PENS&#xc3;O MILITAR &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>FUNDO DE SA&#xda;DE &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>FUNDO DE SA&#xda;DE &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DEMAIS DEDU&#xc7;&#xd5;ES &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>9</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DEMAIS DEDU&#xc7;&#xd5;ES &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>REMUNERA&#xc7;&#xc3;O AP&#xd3;S DEDU&#xc7;&#xd5;ES OBRIGAT&#xd3;RIAS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>REMUNERA&#xc7;&#xc3;O AP&#xd3;S DEDU&#xc7;&#xd5;ES OBRIGAT&#xd3;RIAS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - CIVIL &#x28;R&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - CIVIL &#x28;U&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - MILITAR &#x28;R&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - MILITAR &#x28;U&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>TOTAL DE VERBAS INDENIZAT&#xd3;RIAS &#x28;R&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>TOTAL DE VERBAS INDENIZAT&#xd3;RIAS &#x28;U&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>TOTAL DE HONOR&#xc1;RIOS &#x28;JETONS&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>80</xloc>
-      <yloc>224</yloc>
+      <xloc>200</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values - apenas colunas interessantes</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>DESCRICAO_CARGO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>FUNCAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>REGIME_JURIDICO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>JORNADA_DE_TRABALHO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>ORG_LOTACAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>UF_EXERCICIO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>Id_SERVIDOR_PORTAL</name>
-        <rename>ID_SERVIDOR_PORTAL</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>NOME</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>DATA_INGRESSO_ORGAO</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>312</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table output - fato_servidores_ufc</name>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -671,14 +542,14 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>executivo_federal</connection>
-    <schema>public</schema>
-    <table>fato_servidores</table>
+    <connection>dados_executivo_federal</connection>
+    <schema/>
+    <table>tb_servidores_remuneracao</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
+    <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
@@ -689,28 +560,28 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
+        <field>
+          <column_name>id_servidor</column_name>
+          <stream_name>ID_SERVIDOR_PORTAL</stream_name>
+        </field>
+        <field>
+          <column_name>remuneracao</column_name>
+          <stream_name>REMUNERA&#xc7;&#xc3;O B&#xc1;SICA BRUTA &#x28;R&#x24;&#x29;</stream_name>
+        </field>
+        <field>
+          <column_name>indenizatoria</column_name>
+          <stream_name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - CIVIL &#x28;R&#x24;&#x29;&#x28;&#x2a;&#x29;</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>576</xloc>
-      <yloc>224</yloc>
+      <xloc>400</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
-      <error>
-        <source_step>CSV Input - 20160331_Cadastro.csv</source_step>
-        <target_step/>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename>error_nr</nr_valuename>
-        <descriptions_valuename>error_dsc</descriptions_valuename>
-        <fields_valuename>error_fieldname</fields_valuename>
-        <codes_valuename>error_code</codes_valuename>
-        <max_errors>10</max_errors>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>

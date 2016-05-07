@@ -1,16 +1,20 @@
 <Schema name="New Schema1">
   <Cube name="Servidores" visible="true" cache="true" enabled="true">
-    <Table name="fato_servidores_ufc" schema="public" alias="">
+    <Table name="fato_servidores" schema="public">
     </Table>
-    <Dimension type="StandardDimension" visible="true" name="dim_jornada_de_trabalho">
-      <Hierarchy visible="true" hasAll="true">
-        <Level name="Jornada de trabalho" visible="true" column="jornada_de_trabalho" uniqueMembers="false">
+    <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Cargo">
+      <Hierarchy name="Descri&#231;&#227;o do cargo" visible="true" hasAll="true">
+        <Level name="Cargo" visible="true" column="descricao_cargo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="Jornada de trabalho" visible="true" hasAll="true">
+        <Level name="Jornada de trabalho" visible="true" column="jornada_de_trabalho" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" name="dim_cargo">
-      <Hierarchy visible="true" hasAll="true">
-        <Level name="Cargo" visible="true" column="descricao_cargo" uniqueMembers="false">
+    <Dimension type="StandardDimension" visible="true" name="Pessoa">
+      <Hierarchy name="Nome" visible="true" hasAll="true">
+        <Level name="Nome" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
