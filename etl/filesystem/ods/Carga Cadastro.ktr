@@ -69,7 +69,7 @@
   <created_date>2016&#x2f;05&#x2f;07 17&#x3a;53&#x3a;10.313</created_date>
   <modified_user>-</modified_user>
   <modified_date>2016&#x2f;05&#x2f;07 17&#x3a;53&#x3a;10.313</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -99,86 +99,8 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>CSV Input - 20160331_Cadastro.csv</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>CSV Input - 20160331_Cadastro.csv</from><to>Table output - tb_servidores_cadastro</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>local</connection>
-    <schema/>
-    <table>tb_servidores_cadastro</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>id_servidor</column_name>
-          <stream_name>Id_SERVIDOR_PORTAL</stream_name>
-        </field>
-        <field>
-          <column_name>NOME</column_name>
-          <stream_name>NOME</stream_name>
-        </field>
-        <field>
-          <column_name>CPF</column_name>
-          <stream_name>CPF</stream_name>
-        </field>
-        <field>
-          <column_name>DESCRICAO_CARGO</column_name>
-          <stream_name>DESCRICAO_CARGO</stream_name>
-        </field>
-        <field>
-          <column_name>CLASSE_CARGO</column_name>
-          <stream_name>CLASSE_CARGO</stream_name>
-        </field>
-        <field>
-          <column_name>ORG_LOTACAO</column_name>
-          <stream_name>ORG_LOTACAO</stream_name>
-        </field>
-        <field>
-          <column_name>REGIME_JURIDICO</column_name>
-          <stream_name>REGIME_JURIDICO</stream_name>
-        </field>
-        <field>
-          <column_name>JORNADA_DE_TRABALHO</column_name>
-          <stream_name>JORNADA_DE_TRABALHO</stream_name>
-        </field>
-        <field>
-          <column_name>DATA_INGRESSO_ORGAO</column_name>
-          <stream_name>DATA_INGRESSO_ORGAO</stream_name>
-        </field>
-        <field>
-          <column_name>UF_EXERCICIO</column_name>
-          <stream_name>UF_EXERCICIO</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>384</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>CSV Input - 20160331_Cadastro.csv</name>
     <type>CsvInput</type>
@@ -670,6 +592,84 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>192</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output - tb_servidores_cadastro</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>local</connection>
+    <schema/>
+    <table>tb_servidores_cadastro</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>id_servidor</column_name>
+          <stream_name>Id_SERVIDOR_PORTAL</stream_name>
+        </field>
+        <field>
+          <column_name>NOME</column_name>
+          <stream_name>NOME</stream_name>
+        </field>
+        <field>
+          <column_name>CPF</column_name>
+          <stream_name>CPF</stream_name>
+        </field>
+        <field>
+          <column_name>DESCRICAO_CARGO</column_name>
+          <stream_name>DESCRICAO_CARGO</stream_name>
+        </field>
+        <field>
+          <column_name>CLASSE_CARGO</column_name>
+          <stream_name>CLASSE_CARGO</stream_name>
+        </field>
+        <field>
+          <column_name>ORG_LOTACAO</column_name>
+          <stream_name>ORG_LOTACAO</stream_name>
+        </field>
+        <field>
+          <column_name>REGIME_JURIDICO</column_name>
+          <stream_name>REGIME_JURIDICO</stream_name>
+        </field>
+        <field>
+          <column_name>JORNADA_DE_TRABALHO</column_name>
+          <stream_name>JORNADA_DE_TRABALHO</stream_name>
+        </field>
+        <field>
+          <column_name>DATA_INGRESSO_ORGAO</column_name>
+          <stream_name>DATA_INGRESSO_ORGAO</stream_name>
+        </field>
+        <field>
+          <column_name>UF_EXERCICIO</column_name>
+          <stream_name>UF_EXERCICIO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>464</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
