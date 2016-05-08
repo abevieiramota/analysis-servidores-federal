@@ -100,6 +100,7 @@
   </connection>
   <order>
   <hop> <from>CSV Input - 20160331_Cadastro.csv</from><to>Table output - tb_servidores_cadastro</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Variables</from><to>CSV Input - 20160331_Cadastro.csv</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>CSV Input - 20160331_Cadastro.csv</name>
@@ -112,7 +113,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>C&#x3a;&#x5c;Users&#x5c;abevieira&#x5c;Documents&#x5c;GitHub&#x5c;dados-servidores-federal&#x5c;201603_Servidores&#x5c;out_20160331_Cadastro.csv</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x5c;..&#x5c;..&#x5c;cadastros&#x5c;201603_Servidores&#x5c;out_20160331_Cadastro.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -591,7 +592,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>192</xloc>
+      <xloc>240</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>
@@ -609,7 +610,7 @@
            <schema_name/>
            </partitioning>
     <connection>local</connection>
-    <schema/>
+    <schema>staging</schema>
     <table>tb_servidores_cadastro</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -670,6 +671,39 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>464</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get Variables</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>jndi_db</name>
+        <variable/>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>64</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
       </GUI>

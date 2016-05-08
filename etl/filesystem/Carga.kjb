@@ -4,12 +4,18 @@
     <description/>
     <extended_description/>
     <job_version/>
+    <job_status>0</job_status>
   <directory>&#x2f;</directory>
   <created_user>-</created_user>
   <created_date>2016&#x2f;05&#x2f;08 09&#x3a;29&#x3a;09.571</created_date>
   <modified_user>-</modified_user>
   <modified_date>2016&#x2f;05&#x2f;08 09&#x3a;29&#x3a;09.571</modified_date>
     <parameters>
+        <parameter>
+            <name>param_jndi_db</name>
+            <default_value>dados_executivo_federal</default_value>
+            <description/>
+        </parameter>
     </parameters>
   <connection>
     <name>dados_executivo_federal</name>
@@ -74,16 +80,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>80</xloc>
+      <xloc>32</xloc>
       <yloc>96</yloc>
       </entry>
     <entry>
-      <name>Job - Carga staging area</name>
+      <name>Job - Carga staging area.kjb</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;Carga staging area.kjb</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x5c;ods&#x5c;Carga staging area.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -105,16 +111,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
-      <yloc>100</yloc>
+      <xloc>704</xloc>
+      <yloc>96</yloc>
       </entry>
     <entry>
-      <name>Job - Carga dimens&#xf5;es</name>
+      <name>Job - Carga dimens&#xf5;es.kjb</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;Carga dimens&#xf5;es.kjb</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x5c;dim&#x5c;Carga dimens&#xf5;es.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -136,16 +142,16 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>600</xloc>
-      <yloc>100</yloc>
+      <xloc>896</xloc>
+      <yloc>96</yloc>
       </entry>
     <entry>
-      <name>Job - Carga fato</name>
+      <name>Job - Carga fato.kjb</name>
       <description/>
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;Carga fato.kjb</filename>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x5c;fato&#x5c;Carga fato.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -167,21 +173,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>800</xloc>
-      <yloc>100</yloc>
+      <xloc>1072</xloc>
+      <yloc>96</yloc>
       </entry>
     <entry>
-      <name>Success</name>
-      <description/>
-      <type>SUCCESS</type>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>1000</xloc>
-      <yloc>100</yloc>
-      </entry>
-    <entry>
-      <name>Check Db connections</name>
+      <name>Check Db connections - dados_executivo_federal</name>
       <description/>
       <type>CHECK_DB_CONNECTIONS</type>
       <connections>
@@ -194,14 +190,67 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>240</xloc>
+      <xloc>480</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Transformation - Limpa staging area.ktr</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x5c;Limpa staging area.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1248</xloc>
+      <yloc>96</yloc>
+      </entry>
+    <entry>
+      <name>Set variables</name>
+      <description/>
+      <type>SET_VARIABLES</type>
+      <replacevars>Y</replacevars>
+      <filename/>
+      <file_variable_type>JVM</file_variable_type>
+      <fields>
+        <field>
+          <variable_name>jndi_db</variable_name>
+          <variable_value>&#x24;&#x7b;param_jndi_db&#x7d;</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>232</xloc>
       <yloc>96</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>Job - Carga staging area</from>
-      <to>Job - Carga dimens&#xf5;es</to>
+      <from>Job - Carga staging area.kjb</from>
+      <to>Job - Carga dimens&#xf5;es.kjb</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -209,8 +258,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Job - Carga dimens&#xf5;es</from>
-      <to>Job - Carga fato</to>
+      <from>Job - Carga dimens&#xf5;es.kjb</from>
+      <to>Job - Carga fato.kjb</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>N</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections - dados_executivo_federal</from>
+      <to>Job - Carga staging area.kjb</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -218,17 +276,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Job - Carga fato</from>
-      <to>Success</to>
+      <from>Job - Carga fato.kjb</from>
+      <to>Transformation - Limpa staging area.ktr</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>START</from>
-      <to>Check Db connections</to>
+      <to>Set variables</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -236,8 +294,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Check Db connections</from>
-      <to>Job - Carga staging area</to>
+      <from>Set variables</from>
+      <to>Check Db connections - dados_executivo_federal</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

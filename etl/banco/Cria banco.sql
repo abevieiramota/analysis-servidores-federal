@@ -1,0 +1,22 @@
+CREATE TABLE staging.tb_servidores_cadastro
+(
+  id_servidor BIGINT
+, NOME VARCHAR(100)
+, CPF VARCHAR(20)
+, DESCRICAO_CARGO VARCHAR(100)
+, CLASSE_CARGO VARCHAR(2)
+, ORG_LOTACAO VARCHAR(100)
+, REGIME_JURIDICO VARCHAR(50)
+, JORNADA_DE_TRABALHO VARCHAR(30)
+, DATA_INGRESSO_ORGAO TIMESTAMP
+, UF_EXERCICIO VARCHAR(2)
+)
+;
+
+CREATE TABLE staging.tb_servidores_remuneracao
+(
+  id_servidor BIGINT
+, remuneracao NUMERIC(10, 2)
+, indenizatoria NUMERIC(10, 2)
+)
+;

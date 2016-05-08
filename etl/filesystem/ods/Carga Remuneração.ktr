@@ -112,7 +112,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>C&#x3a;&#x5c;Users&#x5c;abevieira&#x5c;Documents&#x5c;GitHub&#x5c;dados-servidores-federal&#x5c;201603_Servidores&#x5c;out_20160331_Remuneracao.csv</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x5c;..&#x5c;..&#x5c;cadastros&#x5c;201603_Servidores&#x5c;out_20160331_Remuneracao.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -543,7 +543,7 @@
            <schema_name/>
            </partitioning>
     <connection>dados_executivo_federal</connection>
-    <schema/>
+    <schema>staging</schema>
     <table>tb_servidores_remuneracao</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
